@@ -1,0 +1,51 @@
+doctype html
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7  
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8  
+//if IE 8
+  html.no-js.lt-ie9  
+// [if gt IE 8] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    base(href="/")
+    title
+      | TestingTask
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //- link(href='../libs/bootstrap/dist/css/bootstrap.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/style.css')
+  body(ng-app="test_app")
+    //if lt IE 7
+      p.browsehappy
+        | You are using an 
+        strong outdated
+        |  browser. Please 
+        a(href='#') upgrade your browser
+        |  to improve your experience. 
+    
+    div.container
+      h1
+        | Test qualify for FXTM
+      div.triangleTabs
+        a.triangleTabs__element(ng-href="/" ng-class="{'triangleTabs__element--active': step===1}")
+          span
+            | 1. 
+          | Step 1
+        a.triangleTabs__element.triangleTabs__element--secondTab(ng-href="step2" ng-class="{'triangleTabs__element--active': step===2}")
+          span 
+            | 2. 
+          | Step 2  
+ 
+      div(ng-view)
+    
+    script(src='/assets/angular/angular.min.js')
+    script(src='/assets/angular-route/angular-route.min.js')
+    script(src='/assets/ngstorage/ngStorage.min.js')
+    script(src='/assets/underscore/underscore.min.js')
+    script(src='/js/app.js')  
+    script(src='/js/services.js')  
+    script(src='/js/controllers.js')   

@@ -1,0 +1,8 @@
+{
+  "name": "TestingTask",
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "angular": "1.6.1",
+    "lodash": "^4.17.4"
+  }
+}

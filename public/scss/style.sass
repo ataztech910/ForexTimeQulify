@@ -1,0 +1,167 @@
+@import "variables.sass"
+@import "_bootstrap.scss"
+h1, h2
+    margin-bottom: 20px
+    color: $h1-color
+h2
+    font-size: 2rem
+h3
+    margin: 0
+    font-size: 1.5rem       
+.triangleTabs
+    width: 100%
+    height: initial
+    padding-right: 15px
+    &__element  
+        cursor: pointer    
+        float: left
+        background: $unactive-tab-color
+        padding: 1.5rem
+        color: $firm-white-color
+        position: relative
+        width: 50%
+        text-align: center
+        display: block
+        // transition: all .4s
+        span
+            font-size: 1.5rem
+            font-weight: bold
+        &:hover
+            text-decoration: none 
+            color: $well-border-color    
+        &:active, &:visited, &:link
+            text-decoration: none
+            color: $firm-white-color    
+        &:after 
+            content: ""
+            width: 0
+            height: 0
+            border-style: solid
+            z-index: 9999
+            position: absolute
+            right: -15px
+            top: 0
+            height: 0
+            border-width: 25px 0 25px 15px
+            border-color: transparent transparent transparent $unactive-tab-color
+            line-height: 0px
+            _border-color: #000000 #000000 #000000 $unactive-tab-color  
+            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000')
+        &--active
+            background: $active-tab-color
+            &:after 
+                content: ""
+                width: 0
+                height: 0
+                border-style: solid
+                z-index: 9999
+                position: absolute
+                right: -18px
+                top: 0
+                height: 0
+                border-width: 25px 0 25px 18px
+                border-color: transparent transparent transparent $active-tab-color
+                line-height: 0px
+                _border-color: #000000 #000000 #000000 $active-tab-color 
+                _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000')
+        &--secondTab
+            padding-left: 2.5rem               
+    &:after
+        content: ""
+        width: 0
+        height: 0
+        display: block
+        clear: both
+.carsAndSteps
+    margin-top: 5rem        
+    .wellsForCars
+        @extend .row
+        margin: 0
+        &__well  
+            @extend .well               
+            @extend .col-md-4 
+            @media screen and (min-width: 1200px)
+                width: 30.333333%
+                margin-right: 5rem
+            @media screen and (min-width: 1024px) and (max-width: 1201px)
+                width: 30.333333%
+                margin-right: 4rem 
+            @media screen and (min-width: 750px) and (max-width: 1024px)
+                width: 100%
+                margin-right: 3rem                     
+            border-radius: 2px
+            background-color: $well-color
+            border-color: $well-border-color
+            box-shadow: none
+            -webkit-box-shadow: none
+            &:last-child
+                margin-right: 0
+            &__listOfChosenCars
+                margin-top: 2rem
+                font-size: 1.1rem
+                .cars
+                    &:after
+                        content: ""
+                        width: 0
+                        height: 0
+                        display: block
+                        clear: both    
+                        margin-top: 1rem
+                    &__element 
+                        float: left
+                        cursor: pointer  
+                        margin-top: 0.5rem
+                        margin-right: 0.5rem
+                        span 
+                            @extend .label 
+                            @extend .label-warning
+                            border-radius: 2px
+                            background-color: $car-button-color
+    .carsTable
+        @extend table
+        font-size: 1rem
+        .table
+            &__popularity
+                @media screen and (min-width: 1200px)
+                    width: 17%
+                @media screen and (min-width: 1024px) and (max-width: 1201px)
+                    width: 20%
+                @media screen and (min-width: 320px) and (max-width: 1024px)
+                    width: 30%  
+        th
+            border-bottom: 1px solid $table-border-color              
+        td 
+            color: $list-name-color
+            vertical-align: middle
+            .btn
+                font-size: 1rem
+                background-color: $green-button-color
+                color: $firm-white-color
+                transition: all 0.5s
+                @media screen and (min-width: 320px) and (max-width: 1024px)
+                    display: block
+                &:hover
+                    background-color: $firm-white-color
+                    color: $green-button-color
+                &:focus
+                    outline: 0 !important   
+            .rating
+                font-size: 2rem
+                text-align: left
+                color: $start-unactive-color
+                float: left
+                margin-right: 1rem
+                position: relative
+                height: 3rem
+                &--active:before
+                    content: "\2605"
+                    position: absolute
+                    color: $start-active-color
+                &:after
+                        content: ""
+                        width: 0
+                        height: 0
+                        display: block
+                        clear: both    
+                        margin-top: 1rem        
+                    

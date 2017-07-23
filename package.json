@@ -1,0 +1,25 @@
+{
+  "name": "TestingTask",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "scripts": {
+    "start": "grunt"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-jade": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-copy": "^0.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2"
+  }
+}

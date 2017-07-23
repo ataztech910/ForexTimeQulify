@@ -1,0 +1,38 @@
+
+<div ng-cloak="ng-cloak" class="carsAndSteps">
+  <h2>2. Step 2</h2>
+  <div class="carsTable table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+             
+            Title
+          </th>
+          <th>Description</th>
+          <th>
+             
+            Price
+          </th>
+          <th class="table__popularity">Popularity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="selectedCars.length===0">
+          <td colspan="4">no data</td>
+        </tr>
+        <tr ng-repeat="car in selectedCars track by $index">
+          <td>
+            <div class="carsTable__carForSelect">{{car.title}}</div>
+          </td>
+          <td>{{car.description}}</td>
+          <td>{{car.price | currency}}</td>
+          <td>
+            <div class="rating"><span ng-repeat="star in [1,2,3,4,5]" ng-class="{'rating--active': star&lt;=car.popularity}">☆ </span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button ng-click="sendData()" ng-if="selectedCars.length &gt; 0" class="btn btn-success">Send Data</button>
+  </div>
+</div>

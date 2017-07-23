@@ -1,0 +1,79 @@
+
+<div ng-cloak="ng-cloak" class="carsAndSteps">
+  <h2>1. Step 1</h2>
+  <div class="wellsForCars">
+    <div class="wellsForCars__well">
+      <h3>Chosen car
+        <div class="wellsForCars__well__listOfChosenCars">List of chosen cars
+          <div class="cars">
+            <div ng-repeat="selected in selectedCars" class="cars__element"><span ng-click="selectCar(selected)">
+                 
+                {{selected.title}}</span></div>
+            <div ng-if="selectedCars.length===0"><b>no selected cars              </b></div>
+          </div>
+        </div>
+      </h3>
+    </div>
+    <div class="wellsForCars__well">
+      <h3>Chosen car
+        <div class="wellsForCars__well__listOfChosenCars">List of chosen cars
+          <div class="cars">
+            <div ng-repeat="selected in selectedCars" class="cars__element"><span ng-click="selectCar(selected)">
+                 
+                {{selected.title}}</span></div>
+            <div ng-if="selectedCars.length===0"><b>no selected cars</b></div>
+          </div>
+        </div>
+      </h3>
+    </div>
+    <div class="wellsForCars__well">
+      <h3>Chosen car   
+        <div class="wellsForCars__well__listOfChosenCars">List of chosen cars 
+          <div class="cars">
+            <div ng-repeat="selected in selectedCars" class="cars__element"><span ng-click="selectCar(selected)">
+                 
+                {{selected.title}}</span></div>
+            <div ng-if="selectedCars.length===0"><b>no selected cars</b></div>
+          </div>
+        </div>
+      </h3>
+    </div>
+  </div>
+  <div class="carsTable table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+             
+            Title
+          </th>
+          <th>Description</th>
+          <th>
+             
+            Price
+          </th>
+          <th class="table__popularity">Popularity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="cars.length===0">
+          <td colspan="4">no data</td>
+        </tr>
+        <tr ng-repeat="car in cars track by $index" ng-show="!carSelected(car.id)">
+          <td>
+            <div class="carsTable__carForSelect">{{car.title}}</div>
+          </td>
+          <td>{{car.description}}</td>
+          <td>{{car.price | currency}}</td>
+          <td>
+            <div class="rating"><span ng-repeat="star in [1,2,3,4,5]" ng-class="{'rating--active': star&lt;=car.popularity}">☆    </span></div>
+            <button ng-click="selectCar(car)" class="btn btn-success">
+               
+              Select
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

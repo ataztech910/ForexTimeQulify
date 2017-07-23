@@ -1,0 +1,71 @@
+div.carsAndSteps(ng-cloak)
+    h2
+        | 1. Step 1
+    div.wellsForCars
+      div.wellsForCars__well
+        h3
+          | Chosen car
+          div.wellsForCars__well__listOfChosenCars
+            | List of chosen cars
+            div.cars
+              div.cars__element(ng-repeat="selected in selectedCars")
+                span(ng-click="selectCar(selected)")  
+                  | {{selected.title}}
+              div(ng-if="selectedCars.length===0")
+                b
+                  | no selected cars              
+      div.wellsForCars__well
+        h3
+          | Chosen car
+          div.wellsForCars__well__listOfChosenCars
+            | List of chosen cars
+            div.cars
+              div.cars__element(ng-repeat="selected in selectedCars")
+                span(ng-click="selectCar(selected)")  
+                  | {{selected.title}}
+              div(ng-if="selectedCars.length===0")
+                b
+                  | no selected cars
+      div.wellsForCars__well
+        h3
+          | Chosen car   
+          div.wellsForCars__well__listOfChosenCars
+            | List of chosen cars 
+            div.cars
+              div.cars__element(ng-repeat="selected in selectedCars")
+                span(ng-click="selectCar(selected)")  
+                  | {{selected.title}}
+              div(ng-if="selectedCars.length===0")
+                b
+                  | no selected cars
+
+    div.carsTable.table-responsive
+      table.table.table-striped
+        thead
+          tr
+            th 
+              | Title
+            th
+              | Description
+            th  
+              | Price
+            th.table__popularity
+              | Popularity
+        tbody
+          tr(ng-if="cars.length===0")
+                    td(colspan=4)
+                        | no data
+          tr(ng-repeat="car in cars track by $index" ng-show="!carSelected(car.id)")
+            td
+              div.carsTable__carForSelect
+                  | {{car.title}}
+            td
+              | {{car.description}}
+            td
+              | {{car.price | currency}}
+            td
+              div.rating
+                span(ng-repeat="star in [1,2,3,4,5]" ng-class="{'rating--active': star<=car.popularity}")
+                  | ☆    
+              button.btn.btn-success(ng-click="selectCar(car)")  
+                  | Select
