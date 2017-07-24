@@ -4,7 +4,21 @@ app.factory('getCars', function( $localStorage, api_server,$http ) {
             .then(
                 function(response){
                     response.data = _.sortBy( response.data , 'title');
-                    $localStorage.carList = response.data;
+                    if( $localStorage.carList === undefined ){
+                        $localStorage.carList = [];
+                    }
+                    if(response.data != undefined && typeof response.data == 'object'){
+                        for(var i=0; i < response.data.length; i++){
+                            if( typeof response.data[i].title == 'string'  && 
+                                typeof response.data[i].id == 'number'  &&
+                                typeof response.data[i].price == 'number'  &&
+                                typeof response.data[i].popularity == 'number'){
+                                    $localStorage.carList.push(response.data[i]);
+                                }else{
+                                   response.data.splice(i,1); 
+                                }        
+                        }
+                    }
                     return response.data;
                 }, 
                 function(response){
